@@ -1,0 +1,51 @@
+#include <iostream>
+#include <math.h>
+#include <vector>
+using namespace std;
+
+int main() {
+  int given,temp,startExponent,result = 0;
+  vector <int> reversedBin;
+  bool endBin = false,endBin2 = false;
+  cin >> given;
+  //given = 13;
+  while (endBin == false)
+  {
+    if (given != 0) // converts given number to reversed 
+    {
+      temp = given % 2;
+      reversedBin.push_back(temp);
+      given = given/2;
+    }
+    else
+      endBin = true;  
+  }
+  /*
+  for (int j = 0;j < reversedBin.size();j++)
+  {
+    cout << reversedBin[j] << " ";
+  }
+  */
+  //cout << endl;
+  startExponent = reversedBin.size()-1;
+  while (endBin2 == false)
+  {
+      for (int i = 0;i < reversedBin.size();i++)
+      {
+        if(reversedBin[i] == 1)
+        {
+          //cout << "i is currently: " << i << endl;
+          //cout << result << " + 2^" << i << endl;
+          result += pow(2,startExponent);
+        }
+        startExponent--;
+      }
+      endBin2 = true;
+  }
+  cout << result;
+  
+  
+  
+
+
+}
